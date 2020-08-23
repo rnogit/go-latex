@@ -64,3 +64,37 @@ func (e cventry) Print() {
 	e.achievements.Print()
 	fmt.Println("}")
 }
+
+// Define the header of the cv
+
+// cvheader represents all the attributs of the modercv package used in the header of the resume
+type cvheader struct {
+	firstname string
+	lastname  string
+	address   string
+	zipcode   string
+	city      string
+	state     string
+	country   string
+	phone     string
+	email     string
+	homepage  string
+	quote     string
+}
+
+// NewCvheader create a header struct
+func NewCvheader(firstname string, lastname string, address string, zipcode string, city string, state string, country string, phone string, email string, homepage string, quote string) cvheader {
+	h := cvheader{firstname, lastname, address, zipcode, city, state, country, phone, email, homepage, quote}
+	return h
+}
+
+// Printcvitem prints a LaTeX moderncv cvitem (\cvitem{title}{\textnormal{content}})
+func (h cvheader) Print() {
+	fmt.Printf("\\firstname{%s}\n", h.firstname)
+	fmt.Printf("\\familyname{%s}\n", h.lastname)
+	fmt.Printf("\\address{%s}{%s %s, %s}\n", h.address, h.zipcode, h.city, h.country)
+	fmt.Printf("\\mobile{%s}\n", h.phone)
+	fmt.Printf("\\email{%s}\n", h.email)
+	fmt.Printf("\\homepage{%s}{}\n", h.homepage)
+	fmt.Printf("\\quote{%s}\n", h.quote)
+}
