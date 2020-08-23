@@ -60,7 +60,7 @@ func NewCventry(date string, position string, company string, city string, state
 
 // Printcvitem prints a LaTeX moderncv cvitem (\cvitem{title}{\textnormal{content}})
 func (e cventry) Print() {
-	fmt.Printf("\\cventry{%s}{%s}{\textsc{%s}}{%s, %s}{}{\textnormal{%s}}{\n", e.date, e.position, e.company, e.city, e.state, e.description)
+	fmt.Printf("\\cventry{%s}{%s}{\\textsc{%s}}{%s, %s}{}{\\textnormal{%s}}{\n", e.date, e.position, e.company, e.city, e.state, e.description)
 	e.achievements.Print()
 	fmt.Println("}")
 }
