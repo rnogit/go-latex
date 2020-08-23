@@ -2,22 +2,36 @@ package latex
 
 import "fmt"
 
+type list []string
+
+// NewList create a new LaTeX list (\begin{itemize} ... \end{itemize})
+func NewList(list []string) list {
+	l := list
+	return l
+}
+
 // Printlist prints a LaTeX list (\begin{itemize} ... \end{itemize})
-func Printlist(list []string) {
+func (l list) Print() {
 	fmt.Println("\\begin{itemize}")
-	for _, item := range list {
+	for _, item := range l {
 		fmt.Println("	\\item", item)
 	}
 	fmt.Println("\\end{itemize}")
 }
 
 // Cvitem represents a cvitem in the modercv LaTeX template
-type Cvitem struct {
-	title   string
-	content string
+type cvitem struct {
+	title   string // The title of the cvitem
+	content string // the content of the cvitem
+}
+
+// NewCvitem create a new cvitem
+func NewCvitem(title string, content string) cvitem {
+	i := cvitem{title, content}
+	return i
 }
 
 // Printcvitem prints a LaTeX moderncv cvitem (\cvitem{title}{\textnormal{content}})
-func Printcvitem(cvitem Cvitem) {
-	fmt.Printf("\\cvitem{%s}{\textnormal{%s}}\n", cvitem.title, cvitem.content)
+func (cvitem cvitem) Print() {
+	fmt.Printf("\\cvitem{%s}{\\textnormal{%s}}\n", cvitem.title, cvitem.content)
 }
