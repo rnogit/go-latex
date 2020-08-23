@@ -5,9 +5,9 @@ import "fmt"
 type list []string
 
 // NewList create a new LaTeX list (\begin{itemize} ... \end{itemize})
-func NewList(list []string) list {
-	l := list
-	return l
+func NewList(items ...string) []string {
+	i := items
+	return i
 }
 
 // Printlist prints a LaTeX list (\begin{itemize} ... \end{itemize})
