@@ -2,7 +2,8 @@ package latex
 
 import "fmt"
 
-func list(list []int) {
+// Printlist prints a LaTeX list (\begin{itemize} ... \end{itemize})
+func Printlist(list []int) {
 	fmt.Println("\\begin{itemize}")
 	for _, item := range list {
 		fmt.Println("\\item", item)
