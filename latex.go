@@ -6,7 +6,7 @@ import "fmt"
 func Printlist(list []string) {
 	fmt.Println("\\begin{itemize}")
 	for _, item := range list {
-		fmt.Println("\\item", item)
+		fmt.Println("	\\item", item)
 	}
 	fmt.Println("\\end{itemize}")
 }
