@@ -2,6 +2,11 @@ package latex
 
 import "fmt"
 
+type Cv struct {
+	Header                  Cvheader
+	ProfessionalExperiences []Cventry
+}
+
 // List defines a LaTeX list
 type List []string
 
