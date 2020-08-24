@@ -5,7 +5,7 @@ import "fmt"
 // Cv represents the entire LaTeX resume
 type Cv struct {
 	Header                  Cvheader
-	ProfessionalExperiences []Cventry
+	ProfessionalExperiences []Cventry `json:"professional_experiences"`
 }
 
 // List defines a LaTeX list
