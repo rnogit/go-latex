@@ -2,17 +2,11 @@ package latex
 
 import "fmt"
 
-// Define a LaTeX list
-type list []string
-
-// NewList creates a new LaTeX list (\begin{itemize} ... \end{itemize})
-func NewList(items ...string) list {
-	list := items
-	return list
-}
+// List defines a LaTeX list
+type List []string
 
 // Print prints a LaTeX list (\begin{itemize} ... \end{itemize})
-func (l list) Print() {
+func (l List) Print() {
 	fmt.Println("\\begin{itemize}")
 	for _, item := range l {
 		fmt.Println("	\\item", item)
@@ -22,79 +16,61 @@ func (l list) Print() {
 
 // Define a \cvitem
 
-// cvitem represents a cvitem in the modercv LaTeX package
-type cvitem struct {
-	title   string // The title of the cvitem
-	content string // the content of the cvitem
-}
-
-// NewCvitem create a new cvitem
-func NewCvitem(title string, content string) cvitem {
-	i := cvitem{title, content}
-	return i
+// Cvitem represents a cvitem in the modercv LaTeX package
+type Cvitem struct {
+	Title   string // The title of the cvitem
+	Content string // the content of the cvitem
 }
 
 // Print prints a LaTeX moderncv cvitem (\cvitem{title}{\textnormal{content}})
-func (cvitem cvitem) Print() {
-	fmt.Printf("\\cvitem{%s}{\\textnormal{%s}}\n", cvitem.title, cvitem.content)
+func (i Cvitem) Print() {
+	fmt.Printf("\\cvitem{%s}{\\textnormal{%s}}\n", i.Title, i.Content)
 }
 
 // Define a \cventry
 
-// cventry represents a cventry in the modercv LaTeX package
-type cventry struct {
-	date         string // The date
-	position     string // the title or name of the position
-	company      string // The company name
-	city         string // The city name
-	state        string // State
-	description  string // Description of the position
-	achievements list   // A list of achievements
+// Cventry represents a cventry in the modercv LaTeX package
+type Cventry struct {
+	Date         string // The date
+	Position     string // the title or name of the position
+	Company      string // The company name
+	City         string // The city name
+	State        string // State
+	Description  string // Description of the position
+	Achievements List   // A list of achievements
 }
 
-// NewCventry create a new cvitem
-func NewCventry(date string, position string, company string, city string, state string, description string, achievements list) cventry {
-	e := cventry{date, position, company, city, state, description, achievements}
-	return e
-}
-
-// Printcvitem prints a LaTeX moderncv cvitem (\cvitem{title}{\textnormal{content}})
-func (e cventry) Print() {
-	fmt.Printf("\\cventry{%s}{%s}{\\textsc{%s}}{%s, %s}{}{\\textnormal{%s}}{\n", e.date, e.position, e.company, e.city, e.state, e.description)
-	e.achievements.Print()
+// Print prints a LaTeX moderncv cvitem (\cvitem{title}{\textnormal{content}})
+func (e Cventry) Print() {
+	fmt.Printf("\\cventry{%s}{%s}{\\textsc{%s}}{%s, %s}{}{\\textnormal{%s}}{\n", e.Date, e.Position, e.Company, e.City, e.State, e.Description)
+	e.Achievements.Print()
 	fmt.Println("}")
 }
 
 // Define the header of the cv
 
-// cvheader represents all the attributs of the modercv package used in the header of the resume
-type cvheader struct {
-	firstname string
-	lastname  string
-	address   string
-	zipcode   string
-	city      string
-	state     string
-	country   string
-	phone     string
-	email     string
-	homepage  string
-	quote     string
+// Cvheader represents all the attributs of the modercv package used in the header of the resume
+type Cvheader struct {
+	Firstname string
+	Lastname  string
+	Address   string
+	Zipcode   string
+	City      string
+	State     string
+	Country   string
+	Phone     string
+	Email     string
+	Homepage  string
+	Quote     string
 }
 
-// NewCvheader create a header struct
-func NewCvheader(firstname string, lastname string, address string, zipcode string, city string, state string, country string, phone string, email string, homepage string, quote string) cvheader {
-	h := cvheader{firstname, lastname, address, zipcode, city, state, country, phone, email, homepage, quote}
-	return h
-}
-
-// Printcvitem prints a LaTeX moderncv cvitem (\cvitem{title}{\textnormal{content}})
-func (h cvheader) Print() {
-	fmt.Printf("\\firstname{%s}\n", h.firstname)
-	fmt.Printf("\\familyname{%s}\n", h.lastname)
-	fmt.Printf("\\address{%s}{%s %s, %s}\n", h.address, h.zipcode, h.city, h.country)
-	fmt.Printf("\\mobile{%s}\n", h.phone)
-	fmt.Printf("\\email{%s}\n", h.email)
-	fmt.Printf("\\homepage{%s}{}\n", h.homepage)
-	fmt.Printf("\\quote{%s}\n", h.quote)
+// Print prints a LaTeX moderncv cvitem (\cvitem{title}{\textnormal{content}})
+func (h Cvheader) Print() {
+	fmt.Printf("\\firstname{%s}\n", h.Firstname)
+	fmt.Printf("\\familyname{%s}\n", h.Lastname)
+	fmt.Printf("\\address{%s}{%s %s, %s}\n", h.Address, h.Zipcode, h.City, h.Country)
+	fmt.Printf("\\mobile{%s}\n", h.Phone)
+	fmt.Printf("\\email{%s}\n", h.Email)
+	fmt.Printf("\\homepage{%s}{}\n", h.Homepage)
+	fmt.Printf("\\quote{%s}\n", h.Quote)
 }
