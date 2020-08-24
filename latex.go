@@ -8,6 +8,14 @@ type Cv struct {
 	ProfessionalExperiences []Cventry `json:"professional_experiences"`
 }
 
+// Print prints a LaTeX list (\begin{itemize} ... \end{itemize})
+func (cv Cv) Print() {
+	cv.Header.Print()
+	for _, xp := range cv.ProfessionalExperiences {
+		xp.Print()
+	}
+}
+
 // List defines a LaTeX list
 type List []string
 
