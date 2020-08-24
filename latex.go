@@ -2,6 +2,7 @@ package latex
 
 import "fmt"
 
+// Cv represents the entire LaTeX resume
 type Cv struct {
 	Header                  Cvheader
 	ProfessionalExperiences []Cventry
