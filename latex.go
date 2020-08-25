@@ -47,7 +47,7 @@ type Cv struct {
 			Content string `json:"content"`
 		} `json:"certifications"`
 	} `json:"certifications_section"`
-	EductionSection struct {
+	EducationSection struct {
 		Title     string `json:"title"`
 		Education []struct {
 			Date        string `json:"date"`
