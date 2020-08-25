@@ -66,9 +66,9 @@ type Cv struct {
 	} `json:"languages_section"`
 	InterestsSection struct {
 		Title     string `json:"title"`
-		Languages []struct {
+		Interests []struct {
 			Name    string `json:"name"`
 			Content string `json:"content"`
-		} `json:"languages"`
+		} `json:"interests"`
 	} `json:"interests_section"`
 }
