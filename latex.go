@@ -56,7 +56,7 @@ type Cv struct {
 			DegreeLevel string `json:"degree_level"`
 			DegreeName  string `json:"degree_name"`
 		} `json:"education"`
-	} `json:"eduction_section"`
+	} `json:"education_section"`
 	LanguagesSection struct {
 		Title     string `json:"title"`
 		Languages []struct {
