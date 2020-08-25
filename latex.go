@@ -39,14 +39,14 @@ type Cv struct {
 			Content string `json:"content"`
 		} `json:"skills"`
 	} `json:"skills_section"`
-	CertificationSection struct {
+	CertificationsSection struct {
 		Title            string `json:"title"`
 		VerificationLink string `json:"verification_link"`
 		Certifications   []struct {
 			Title   string `json:"title"`
 			Content string `json:"content"`
 		} `json:"certifications"`
-	} `json:"certification_section"`
+	} `json:"certifications_section"`
 	EductionSection struct {
 		Title     string `json:"title"`
 		Education []struct {
