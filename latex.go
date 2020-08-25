@@ -33,16 +33,16 @@ type Cv struct {
 		} `json:"experiences"`
 	} `json:"professional_experiences_section"`
 	SkillsSection struct {
-		Title            string `json:"title"`
-		VerificationLink string `json:"verification_link"`
-		Skills           []struct {
+		Title  string `json:"title"`
+		Skills []struct {
 			Title   string `json:"title"`
 			Content string `json:"content"`
 		} `json:"skills"`
 	} `json:"skills_section"`
 	CertificationSection struct {
-		Title          string `json:"title"`
-		Certifications []struct {
+		Title            string `json:"title"`
+		VerificationLink string `json:"verification_link"`
+		Certifications   []struct {
 			Title   string `json:"title"`
 			Content string `json:"content"`
 		} `json:"certifications"`
