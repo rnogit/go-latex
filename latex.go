@@ -2,14 +2,26 @@ package latex
 
 // Cv represents the entire LaTeX resume
 type Cv struct {
-	Header                  Cvheader
-	ProfessionalSummary     ProfessionalSummary `json:"professional_summary"`
-	ProfessionalExperiences []Cventry           `json:"professional_experiences"`
-	Skills                  []Cvitem
-	Certifications          []Cvitem
-	Eduction                []Cvitem
-	Languages               []Cvitem
-	Interests               []Cvitem
+	Header                         Cvheader
+	ProfessionalSummary            Section                        `json:"professional_summary_section"`
+	ProfessionalExperiencesSection ProfessionalExperiencesSection `json:"professional_experiences"`
+	SkillsSection                  Section
+	CertificationsSection          Section
+	EducationSection               Section
+	LanguagesSection               Section
+	InterestsSection               Section
+}
+
+// ProfessionalExperiencesSection represent the profesional summary section which is a little specific
+type ProfessionalExperiencesSection struct {
+	Title   string
+	Entries []Cventry
+}
+
+// Section represents any section containing CVitems
+type Section struct {
+	Title string
+	Items []Cvitem
 }
 
 // Cvheader represents all the attributs of the modercv package used in the header of the resume
