@@ -6,7 +6,7 @@ type Cv struct {
 	ProfessionalSummary            Section                        `json:"professional_summary_section"`
 	ProfessionalExperiencesSection ProfessionalExperiencesSection `json:"professional_experiences"`
 	SkillsSection                  Section
-	CertificationsSection          Section
+	CertificationsSection          CertificationsSection
 	EducationSection               Section
 	LanguagesSection               Section
 	InterestsSection               Section
@@ -16,6 +16,13 @@ type Cv struct {
 type ProfessionalExperiencesSection struct {
 	Title   string
 	Entries []Cventry
+}
+
+// CertificationsSection represents a certification section (need for the verification link)
+type CertificationsSection struct {
+	Title            string
+	VerificationLink string
+	Items            []Cvitem
 }
 
 // Section represents any section containing CVitems
